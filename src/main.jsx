@@ -9,6 +9,7 @@ import './index.css'
 import Main from './componets/Main/Main';
 import OrderReview from './componets/OrderReview/OrderReview';
 import Home from './componets/Home/Home';
+import Grandpa from './componets/Grandpa/Grandpa';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -16,12 +17,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('tshirts.json'),
       },
       {
         path: 'order',
         element: <OrderReview></OrderReview>,
-        loader: () => fetch('tshirts.json'),
+
+      },
+      {
+        path: '/grandpa',
+        element: <Grandpa />
       }
     ]
   }
